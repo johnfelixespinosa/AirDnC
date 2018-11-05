@@ -1,4 +1,5 @@
 class Listing < ApplicationRecord
   has_one :address
-  has_one :listing_address, through: :address
+  accepts_nested_attributes_for :address
+  # has_one :listing_address, through: :address
 end

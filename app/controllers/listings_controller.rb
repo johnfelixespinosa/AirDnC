@@ -10,6 +10,7 @@ class ListingsController < ApplicationController
 
   def new
     @listing = Listing.new
+    @address = @listing.build_address
   end
 
   def create
@@ -48,7 +49,14 @@ class ListingsController < ApplicationController
       params.require(:listing).permit(
         :name,
         :description,
+        address_attributes: [
+          :line1, 
+          :line2, 
+          :city, 
+          :state, 
+          :zipCode
+        ]
       )
     end
 
-end
+  end

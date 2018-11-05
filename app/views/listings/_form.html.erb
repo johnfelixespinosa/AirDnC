@@ -3,5 +3,17 @@
   <%= f.text_field :name %><br>
   <%= f.label :description %>
   <%= f.text_field :description %><br>
+    <%= f.fields_for :address do |a| %>
+      <%= a.label :line1, "Address Line 1" %>
+      <%= a.text_field :line1 %><br>
+      <%= a.label :line2, "Address Line 2" %>
+      <%= a.text_field :line2 %><br>
+      <%= a.label :city %>
+      <%= a.text_field :city %><br>
+      <%= a.label :state %>
+      <%= a.text_field :state %><br>
+      <%= a.label :zipCode, "Zip" %>
+      <%= a.text_field :zipCode %><br>
+    <% end %>
   <%= f.submit 'Submit' %>
 <% end %>
