@@ -19,6 +19,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'hirb'
 gem 'devise', '~> 4.2'
+gem 'paperclip', '~> 6.1'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
