@@ -56,6 +56,7 @@ class ListingsController < ApplicationController
         :description,
         :listingimage,
         address_attributes: [
+          :id,
           :line1, 
           :line2, 
           :city, 
