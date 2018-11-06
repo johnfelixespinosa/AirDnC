@@ -54,6 +54,7 @@ class ListingsController < ApplicationController
       params.require(:listing).permit(
         :name,
         :description,
+        :listingimage,
         address_attributes: [
           :line1, 
           :line2, 

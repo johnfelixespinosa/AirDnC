@@ -1,6 +1,6 @@
-<%= form_for @listing do |f| %>
+<%= form_for @listing, :html => { :multipart => true } do |f| %>
   <%= f.label :name %>
-  <%= f.text_field :name %><br>
+  <%= f.text_field :name %><br>  
   <%= f.label :description %>
   <%= f.text_field :description %><br>
     <%= f.fields_for :address do |a| %>
@@ -15,5 +15,7 @@
       <%= a.label :zipCode, "Zip" %>
       <%= a.text_field :zipCode %><br>
     <% end %>
+  <%= f.label :image %>
+  <%= f.file_field :listingimage %><br>
   <%= f.submit 'Submit' %>
 <% end %>
