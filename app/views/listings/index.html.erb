@@ -1,6 +1,13 @@
 <h1>Listings</h1>
-
-<% @listings.each do |listing| %>
-  <strong><%= link_to listing.name, listing_path(listing) %></strong><br>
-
-<% end %>
+<div class="row">
+  <% @listings.each do |listing| %>
+    <div class="col-md-3">
+      <a href="/listings/<%= listing.id %>">
+        <%= image_tag listing.listingimage.url(:thumb) %>
+      </a><br>
+      <strong>
+        <%= link_to listing.name, listing_path(listing) %>
+      </strong><br>
+    </div>
+  <% end %>
+</div>	
