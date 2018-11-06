@@ -3,7 +3,11 @@ class ListingsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit]
 
   def index
-    @listings = Listing.all
+    if params[:user_id]
+      @listings = User.find(params[:user_id]).listings
+    else
+      @listings = Listing.all
+    end
   end
 
   def show

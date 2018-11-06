@@ -5,6 +5,9 @@
 <%= @listing.address.line2 %><br>
 <%= @listing.address.city %><br>
 <%= @listing.address.state %><br>
-<%= @listing.address.zipCode %>
+<%= @listing.address.zipCode %><br>
 
-
+<% if current_user = @listing.user %>
+  <%= link_to 'Edit', edit_user_listing_path(current_user, @listing) %>
+  <%= link_to 'Delete', listing_path(@listing), method: :delete, data: { confirm: "Are you sure?" } %>
+<% end %>

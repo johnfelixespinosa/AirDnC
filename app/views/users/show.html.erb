@@ -2,6 +2,7 @@
 <% @current_user.listings.each do |listing| %>
   <strong><%= listing.name %></strong><br>
   <ul>
+    <%= link_to 'View', user_listing_path(current_user, listing) %>
     <%= link_to 'Edit', edit_user_listing_path(current_user, listing) %>
     <%= link_to 'Delete', listing_path(listing), method: :delete, data: { confirm: "Are you sure?" } %>
   </ul><br>
