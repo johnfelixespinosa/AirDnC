@@ -1,9 +1,18 @@
 <h1>Your Listings</h1>
-<% @current_user.listings.each do |listing| %>
+<% @user.listings.each do |listing| %>
   <strong><%= listing.name %></strong><br>
   <ul>
-    <%= link_to 'View', user_listing_path(current_user, listing) %>
-    <%= link_to 'Edit', edit_user_listing_path(current_user, listing) %>
+    <%= link_to 'View', user_listing_path(@user, listing) %>
+    <%= link_to 'Edit', edit_user_listing_path(@user, listing) %>
     <%= link_to 'Delete', listing_path(listing), method: :delete, data: { confirm: "Are you sure?" } %>
   </ul><br>
 <% end %>
+
+<div class="profile">
+  <h1>Profile</h1>
+  <% if @user.profile == nil %>
+    <%= link_to 'Create Profile', new_user_profile_path(@user) %>
+  <% else %>
+    <%= @user.profile.greeting %>
+  <% end %>
+</div>
