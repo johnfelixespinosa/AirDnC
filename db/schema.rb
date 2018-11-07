@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_06_184522) do
+ActiveRecord::Schema.define(version: 2018_11_07_182526) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "line1"
@@ -33,6 +33,15 @@ ActiveRecord::Schema.define(version: 2018_11_06_184522) do
     t.string "listingimage_content_type"
     t.bigint "listingimage_file_size"
     t.datetime "listingimage_updated_at"
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.text "greeting"
+    t.text "about_me"
+    t.string "phone_number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|
