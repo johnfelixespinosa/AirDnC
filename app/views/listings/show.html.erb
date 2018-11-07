@@ -8,7 +8,7 @@
 <%= @listing.address.state %><br>
 <%= @listing.address.zipCode %><br>
 
-<% if current_user.id == @listing.user_id %>
+<% if current_user == @listing.host %>
   <%= link_to 'Edit', edit_user_listing_path(current_user, @listing) %>
   <%= link_to 'Delete', listing_path(@listing), method: :delete, data: { confirm: "Are you sure?" } %>
 <% end %>
