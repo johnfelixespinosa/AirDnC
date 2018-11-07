@@ -1,0 +1,21 @@
+<%= form_for @profile do |f| %>
+  <%= f.label :greeting %>
+  <%= f.text_field :greeting %><br>  
+  <%= f.label :about_me %>
+  <%= f.text_field :about_me %><br>
+  <%= f.label :phone_number %>
+  <%= f.text_field :phone_number %><br>
+    <%= f.fields_for :address do |a| %>
+      <%= a.label :line1, "Address Line 1" %>
+      <%= a.text_field :line1 %><br>
+      <%= a.label :line2, "Address Line 2" %>
+      <%= a.text_field :line2 %><br>
+      <%= a.label :city %>
+      <%= a.text_field :city %><br>
+      <%= a.label :state %>
+      <%= a.text_field :state %><br>
+      <%= a.label :zipCode, "Zip" %>
+      <%= a.text_field :zipCode %><br>
+    <% end %>
+  <%= f.submit 'Submit' %>
+<% end %>

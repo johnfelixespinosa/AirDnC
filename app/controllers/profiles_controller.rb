@@ -1,6 +1,9 @@
 class ProfilesController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :edit]
+
   def new
-    @profile = Profile.new
+    @profile = current_user.build_profile
+    @address = @profile.build_address
   end
 
   def create
@@ -14,5 +17,18 @@ class ProfilesController < ApplicationController
 
   private
     def profile_params
+      params.require(:profile).permit(
+        :greeting,
+        :about_me,
+        :phone_number,
+        address_attributes: [
+          :id,
+          :line1, 
+          :line2, 
+          :city, 
+          :state, 
+          :zipCode
+        ]
+      )
     end
 end
