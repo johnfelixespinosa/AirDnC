@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_07_190449) do
+ActiveRecord::Schema.define(version: 2018_11_08_205029) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "line1"
@@ -20,8 +20,8 @@ ActiveRecord::Schema.define(version: 2018_11_07_190449) do
     t.integer "zipCode"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "listing_id"
-    t.integer "profile_id"
+    t.integer "addressable_id"
+    t.string "addressable_type"
   end
 
   create_table "listings", force: :cascade do |t|

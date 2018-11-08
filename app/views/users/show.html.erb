@@ -1,18 +1,37 @@
-<h1>Your Listings</h1>
-<% @user.listings.each do |listing| %>
-  <strong><%= listing.name %></strong><br>
-  <ul>
-    <%= link_to 'View', user_listing_path(@user, listing) %>
-    <%= link_to 'Edit', edit_user_listing_path(@user, listing) %>
-    <%= link_to 'Delete', listing_path(listing), method: :delete, data: { confirm: "Are you sure?" } %>
-  </ul><br>
-<% end %>
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title">Your Listings</h3>
+        <% @user.listings.each do |listing| %>
+          <h5 class="card-title"><%= listing.name %></h5>
+            <%= link_to 'View', user_listing_path(@user, listing) %>
+            <%= link_to 'Edit', edit_user_listing_path(@user, listing) %>
+            <%= link_to 'Delete', listing_path(listing), method: :delete, data: { confirm: "Are you sure?" } %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <% if @user.profile == nil %>
+        
+          <%= link_to 'Create Profile', new_user_profile_path(@user) %>
 
-<div class="profile">
-  <h1>Profile</h1>
-  <% if @user.profile == nil %>
-    <%= link_to 'Create Profile', new_user_profile_path(@user) %>
-  <% else %>
-    <%= @user.profile.greeting %>
-  <% end %>
+        <% else %>
+          
+          <h3 class="card-title">Profile</h3>
+          <h5 class="card-title"><%= @user.profile.greeting %></h5>
+          <p class="card-text"><%= @user.profile.about_me %></p>
+          <h3 class="card-title">Profile</h3>
+          <p class="card-text"><%= @user.profile.address.line1 %></p>
+          <p class="card-text"><%= @user.profile.address.line2 %></p>
+          <p class="card-text"><%= @user.profile.address.city %></p>
+          <p class="card-text"><%= @user.profile.address.state %></p>
+          
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>

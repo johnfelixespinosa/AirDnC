@@ -1,6 +1,6 @@
 class Listing < ApplicationRecord
-  has_one :address
-  belongs_to :host, class_name: "User", foreign_key: 'user_id'
+  belongs_to :user
+  has_one :address, as: :addressable
   accepts_nested_attributes_for :address
 
   has_attached_file :listingimage, styles: { thumb: "200x200#" 

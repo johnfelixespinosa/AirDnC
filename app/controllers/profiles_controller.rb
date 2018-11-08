@@ -7,6 +7,13 @@ class ProfilesController < ApplicationController
   end
 
   def create
+    @profile = current_user.build_profile(profile_params)
+
+    if @profile.save
+      redirect_to user_path(current_user)
+    else
+      raise params.inspect
+    end
   end
 
   def edit
@@ -21,6 +28,7 @@ class ProfilesController < ApplicationController
         :greeting,
         :about_me,
         :phone_number,
+        :user_id,
         address_attributes: [
           :id,
           :line1, 

@@ -1,4 +1,3 @@
 class Address < ApplicationRecord
-  belongs_to :listing
-  belongs_to :profile
+  belongs_to :addressable, polymorphic: :true
 end
