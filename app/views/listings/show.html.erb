@@ -7,6 +7,7 @@
 <%= @listing.address.city %><br>
 <%= @listing.address.state %><br>
 <%= @listing.address.zipCode %><br>
+$<%= @listing.price %> per booking <br>
 
 <% if current_user == @listing.user %>
   <%= link_to 'Edit', edit_user_listing_path(current_user, @listing) %>
