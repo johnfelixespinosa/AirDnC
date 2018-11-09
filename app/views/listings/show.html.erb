@@ -9,11 +9,11 @@
 <%= @listing.address.zipCode %><br>
 $<%= @listing.price %> per booking <br>
 
-<%= render 'host_info' %>
-
 <% if current_user == @listing.user %>
+  <strong>This is your listing!</strong><br>
   <%= link_to 'Edit', edit_user_listing_path(current_user, @listing) %>
   <%= link_to 'Delete', listing_path(@listing), method: :delete, data: { confirm: "Are you sure?" } %>
 <% else %>
+  <%= render 'host_info' %>
   <%= render 'bookings/form' %>
 <% end %>
