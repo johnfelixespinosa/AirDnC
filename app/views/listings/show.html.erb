@@ -12,12 +12,6 @@ $<%= @listing.price %> per booking <br>
 <% if current_user == @listing.user %>
   <%= link_to 'Edit', edit_user_listing_path(current_user, @listing) %>
   <%= link_to 'Delete', listing_path(@listing), method: :delete, data: { confirm: "Are you sure?" } %>
-
 <% else %>
-
-  <%= form_for([@listing, @listing.bookings.new]) do |f| %>
-  <%= f.hidden_field :listing_id, value: @listing.id %>
-  <%= f.hidden_field :price, value: @listing.price %>
-  <%= f.submit "Book Now", class: "btn btn-normal btn-block" %>
-  <% end %>
+  <%= render 'bookings/form'%>
 <% end %>
