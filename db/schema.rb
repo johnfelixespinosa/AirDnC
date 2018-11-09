@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_08_225901) do
+ActiveRecord::Schema.define(version: 2018_11_09_183449) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "line1"
@@ -26,16 +26,10 @@ ActiveRecord::Schema.define(version: 2018_11_08_225901) do
 
   create_table "bookings", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "client_id"
     t.integer "listing_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "clients", force: :cascade do |t|
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer "price"
   end
 
   create_table "listings", force: :cascade do |t|
@@ -48,6 +42,7 @@ ActiveRecord::Schema.define(version: 2018_11_08_225901) do
     t.string "listingimage_content_type"
     t.bigint "listingimage_file_size"
     t.datetime "listingimage_updated_at"
+    t.integer "price"
   end
 
   create_table "profiles", force: :cascade do |t|

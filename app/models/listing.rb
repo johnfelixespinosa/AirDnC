@@ -1,8 +1,8 @@
 class Listing < ApplicationRecord
   belongs_to :user
+
   has_many :bookings
-  has_many :clients, through: :bookings
-  
+
   has_one :address, as: :addressable
   accepts_nested_attributes_for :address
 
