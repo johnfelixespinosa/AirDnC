@@ -40,3 +40,8 @@
 <% @user.bookings.each do |booking| %>
 <%= image_tag booking.listing.listingimage.url(:thumb) %>
 <% end %>
+
+<h3>Your Guests</h3>
+<% @user.guests.each do |guest| %>
+<%= guest.user.username %>
+<% end %>

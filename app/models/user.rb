@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :listings
   has_many :bookings
+
+  has_many :guests, through: :listings, source: :bookings
   
   has_one :profile
 end
