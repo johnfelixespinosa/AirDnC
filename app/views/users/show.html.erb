@@ -35,3 +35,8 @@
     </div>
   </div>
 </div>
+
+<h3>Your Bookings</h3>
+<% @user.bookings.each do |booking| %>
+<%= image_tag booking.listing.listingimage.url(:thumb) %>
+<% end %>
