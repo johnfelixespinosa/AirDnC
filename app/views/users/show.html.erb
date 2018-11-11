@@ -7,7 +7,12 @@
           <h5 class="card-title"><%= listing.name %></h5>
             <%= link_to 'View', user_listing_path(@user, listing) %>
             <%= link_to 'Edit', edit_user_listing_path(@user, listing) %>
-            <%= link_to 'Delete', listing_path(listing), method: :delete, data: { confirm: "Are you sure?" } %>
+            <%= link_to 'Delete', listing_path(listing), method: :delete, data: { confirm: "Are you sure?" } %><br>
+            
+            Guests who have stayed here<br>
+            <% listing.guests.each do |guest| %>
+              <%= link_to guest.username, profile_path(guest) %>
+            <% end %>
         <% end %>
       </div>
     </div>

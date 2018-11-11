@@ -1,0 +1,19 @@
+<h3 class="card-title"><%= @user.username.pluralize %> Profile</h3>
+<h5 class="card-title"><%= @user.profile.greeting %></h5>
+<p class="card-text"><%= @user.profile.about_me %></p>
+<h3 class="card-title">Location</h3>
+<p class="card-text"><%= @user.profile.address.line1 %></p>
+<p class="card-text"><%= @user.profile.address.line2 %></p>
+<p class="card-text"><%= @user.profile.address.city %></p>
+<p class="card-text"><%= @user.profile.address.state %></p>
+<h3 class="card-title">Check out my listings!</h3>
+<% @user.listings.each do |listing| %>
+    <div class="col-md-3">
+      <a href="/listings/<%= listing.id %>">
+        <%= image_tag listing.listingimage.url(:thumb) %>
+      </a><br>
+      <strong>
+        <%= link_to listing.name, listing_path(listing) %>
+      </strong><br>
+    </div>
+<% end %>

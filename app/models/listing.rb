@@ -2,6 +2,7 @@ class Listing < ApplicationRecord
   belongs_to :user
 
   has_many :bookings
+  has_many :guests, through: :bookings, source: :user
 
   has_one :address, as: :addressable
   accepts_nested_attributes_for :address

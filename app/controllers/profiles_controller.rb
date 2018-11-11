@@ -1,5 +1,6 @@
 class ProfilesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit]
+  before_action :find_profile, only: [:show]
 
   def new
     @profile = current_user.build_profile
@@ -14,6 +15,9 @@ class ProfilesController < ApplicationController
     else
       raise params.inspect
     end
+  end
+
+  def show
   end
 
   def edit
@@ -38,5 +42,9 @@ class ProfilesController < ApplicationController
           :zipCode
         ]
       )
+    end
+
+    def find_profile
+      @user = User.find_by(id: params[:id])
     end
 end
