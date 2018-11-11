@@ -41,12 +41,12 @@
   </div>
 </div>
 
-<h3>Your Bookings</h3>
+<h3 class="card-title">Your Bookings</h3>
 <% @user.bookings.each do |booking| %>
 <%= image_tag booking.listing.listingimage.url(:thumb) %>
 <% end %>
 
-<h3>Your Guests</h3>
+<h3 class="card-title">Your Guests</h3>
 <% @user.guests.each do |guest| %>
 <%= guest.user.username %>
 <% end %>
